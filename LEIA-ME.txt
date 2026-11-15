@@ -1,23 +1,16 @@
-SYON TV — pacote PWA inicial
+SYON TV — Etapa 2: Catálogo Inteligente
 
-INSTALAÇÃO NO IPHONE
-1. Publique os arquivos deste pacote em um endereço HTTPS (ex.: seu domínio ou hospedagem estática).
-2. Abra esse endereço no Safari do iPhone.
-3. Toque em Compartilhar > Adicionar à Tela de Início.
-4. Abra o ícone SYON TV instalado.
-5. Entre em Ajustes e cole seu TMDB API Read Access Token.
+Novidades: gêneros selecionáveis, lançamentos nos cinemas, em breve, filmes e séries mais bem avaliados.
+O visual premium, a integração TMDB, busca, detalhes e Minha Lista continuam disponíveis.
 
-TMDB
-- Crie/acesse sua conta e solicite credenciais de API em https://www.themoviedb.org/settings/api
-- Use o API Read Access Token (Bearer).
-- A chave fica armazenada no navegador deste aparelho nesta versão de protótipo.
-- Para produção, implemente um backend que proteja credenciais e aplique limites/monitoramento.
-- Leia os termos de API e requisitos de atribuição: https://developer.themoviedb.org/docs
-- Este produto usa a API do TMDB, mas não é endossado nem certificado pelo TMDB.
+INSTALAÇÃO
+1. Descompacte o ZIP no iPhone.
+2. Envie os cinco arquivos para a RAIZ do repositório GitHub Syon-Tv na branch main.
+3. Substitua os arquivos existentes e confirme Commit changes.
+4. Aguarde GitHub Pages publicar e abra o site no Safari.
+5. Se a versão anterior aparecer, feche e reabra a página; o service worker foi atualizado.
 
-LIMITAÇÕES IMPORTANTES
-- TMDB fornece metadados, imagens e dados de provedores/disponibilidade, não os streams de vídeo.
-- O endpoint de watch providers não garante que uma assinatura do usuário dê acesso nem fornece o vídeo.
-- A reprodução dentro do app exige acordo/API/licença do provedor. Nesta versão, os resultados de provedores e links oficiais são informativos.
-- Esportes e TV ao vivo são áreas preparadas, ainda sem feeds conectados.
-- PWA requer HTTPS para instalação confiável e service worker. Abrir o HTML diretamente como arquivo não instala o app.
+IMPORTANTE
+O token TMDB já salvo no navegador não é apagado pelo envio dos arquivos.
+Não inclua o token no GitHub. O app ainda é um protótipo e precisa de backend para proteger credenciais antes de lançamento público.
+Os dados são fornecidos pelo TMDB; não há reprodução de vídeo integrada.
