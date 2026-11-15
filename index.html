@@ -79,6 +79,11 @@ section{margin:30px 0;padding:0 18px}.row h2{font-size:22px;letter-spacing:-.5px
 .player-fullscreen{border:1px solid #ffffff33;background:#252536;color:white;border-radius:12px;padding:10px 12px}
 .player-top{flex-wrap:wrap}.player-top strong{flex:1;min-width:100px}
 @media(min-width:650px){.channel-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.channel-tile{position:relative;padding-bottom:48px}
+.channel-favorite{position:absolute;right:10px;bottom:9px;border:1px solid #ffffff40;background:#202234;color:#f4edff;border-radius:999px;padding:8px 12px;font-size:12px;z-index:1}
+.channel-favorite[aria-pressed=true]{background:#e9e2ff;color:#171321}
+.channel-source-note{font-size:11px;color:#aab2c4;line-height:1.45;margin:8px 0}
 </style>
 </head>
 <body>
@@ -119,7 +124,7 @@ section{margin:30px 0;padding:0 18px}.row h2{font-size:22px;letter-spacing:-.5px
 <button type="button" aria-pressed="false" onclick="filterChannels('publico',this)">Públicos</button>
 <button type="button" aria-pressed="false" onclick="filterChannels('ciencia',this)">Ciência</button>
 </div>
-<div id="channelGrid" class="channel-grid"><a class="channel-tile" data-channel-category="tv" href="https://pluto.tv/br/live-tv" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">📺</span><span class="channel-name">Pluto TV</span><span class="channel-meta">TV e filmes · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="publico" href="https://tvbrasil.ebc.com.br/" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🇧🇷</span><span class="channel-name">TV Brasil</span><span class="channel-meta">TV pública · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="publico" href="https://www.youtube.com/@tvcultura" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🎭</span><span class="channel-name">TV Cultura</span><span class="channel-meta">Cultura e educação · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="ciencia" href="https://www.youtube.com/@NASA/streams" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🚀</span><span class="channel-name">NASA</span><span class="channel-meta">Ciência e espaço · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="publico" href="https://www.youtube.com/@tvcamara/streams" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🏛️</span><span class="channel-name">TV Câmara</span><span class="channel-meta">Institucional · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="publico" href="https://www.youtube.com/@tvsenado/streams" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🏛️</span><span class="channel-name">TV Senado</span><span class="channel-meta">Institucional · Abrir fonte oficial ↗</span></a></div>
+<div class="row"><span class="muted" id="channelFavCount">Favoritos salvos neste iPhone</span><button class="btn" type="button" onclick="showFavoriteChannels()">★ Meus canais</button></div><div id="channelGrid" class="channel-grid"><a class="channel-tile" data-channel-category="tv" href="https://pluto.tv/br/live-tv" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">📺</span><span class="channel-name">Pluto TV</span><span class="channel-meta">TV e filmes · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="publico" href="https://tvbrasil.ebc.com.br/" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🇧🇷</span><span class="channel-name">TV Brasil</span><span class="channel-meta">TV pública · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="publico" href="https://www.youtube.com/@tvcultura" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🎭</span><span class="channel-name">TV Cultura</span><span class="channel-meta">Cultura e educação · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="ciencia" href="https://www.youtube.com/@NASA/streams" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🚀</span><span class="channel-name">NASA</span><span class="channel-meta">Ciência e espaço · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="publico" href="https://www.youtube.com/@tvcamara/streams" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🏛️</span><span class="channel-name">TV Câmara</span><span class="channel-meta">Institucional · Abrir fonte oficial ↗</span></a><a class="channel-tile" data-channel-category="publico" href="https://www.youtube.com/@tvsenado/streams" target="_blank" rel="noopener noreferrer"><span class="channel-icon" aria-hidden="true">🏛️</span><span class="channel-name">TV Senado</span><span class="channel-meta">Institucional · Abrir fonte oficial ↗</span></a></div>
 <div class="demo-card"><div class="eyebrow">ETAPA 5.6 · PLAYER INTERNO</div><h3>▶ Assistir transmissão HLS</h3><p class="notice">Cole o endereço HTTPS direto de uma transmissão .m3u8 que você tenha autorização para assistir. Links de páginas de canais, YouTube e serviços pagos não funcionam neste campo. O Safari precisa aceitar o formato e o servidor precisa permitir o acesso.</p><label class="sport-label" for="customHlsUrl">Endereço da transmissão HLS (.m3u8)</label><div class="sport-input-row"><input id="customHlsUrl" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://exemplo.com/ao-vivo.m3u8" aria-label="Endereço HLS"><button type="button" onclick="playCustomHls()">▶ Assistir</button></div><p id="customHlsFeedback" class="notice" role="status">O endereço é usado apenas para abrir o vídeo; não é salvo pelo SYON TV.</p><button type="button" class="btn" onclick="fillHlsDemo()">📡 Preencher sinal de teste</button></div>
 <div class="demo-card"><div class="eyebrow">PLAYER INTEGRADO · VALIDADO NO IPHONE</div><h3>📡 Demonstração de transmissão HLS</h3><p class="notice">O sinal abaixo é um teste técnico, não um canal de TV. Ele é reproduzido dentro do SYON TV.</p><button type="button" onclick="openPlayer('hls','https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8','Teste de transmissão HLS')">▶ Assistir teste no SYON TV</button></div>
 <div class="demo-card"><div class="eyebrow">FILMES E DOCUMENTÁRIOS</div><h3>🎬 Catálogos gratuitos oficiais</h3><div class="sport-directory"><a href="https://www.gov.br/cultura/pt-br/assuntos/noticias/tela-brasil-confira-como-acessar-a-plataforma-publica-de-streaming/" target="_blank" rel="noopener noreferrer">🎞️ Tela Brasil ↗</a><a href="https://www.itauculturalplay.com.br/" target="_blank" rel="noopener noreferrer">🎥 Itaú Cultural Play ↗</a><a href="https://www.libreflix.org/" target="_blank" rel="noopener noreferrer">🍿 Libreflix ↗</a><a href="https://pluto.tv/br/on-demand" target="_blank" rel="noopener noreferrer">🍿 Pluto TV · sob demanda ↗</a></div></div>
@@ -242,6 +247,44 @@ function playSportsYoutube(){
  openPlayer('youtube',id,encodeURIComponent('Esportes • YouTube oficial'));
 }
 
+
+function initChannelFavorites(){
+ const grid=document.getElementById('channelGrid');if(!grid)return;
+ grid.querySelectorAll('.channel-tile').forEach((a,i)=>{
+  const b=document.createElement('button');b.type='button';b.className='channel-favorite';b.dataset.channelId='official-'+i;
+  b.setAttribute('aria-label','Adicionar canal aos favoritos');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();toggleChannelFavorite(b)});
+  a.appendChild(b);
+ });
+ updateChannelFavorites();
+}
+function channelFavoriteIds(){try{const v=JSON.parse(localStorage.getItem('syon_channel_favorites')||'[]');return Array.isArray(v)?v:[]}catch(e){return []}}
+function toggleChannelFavorite(button){
+ const ids=channelFavoriteIds(),id=button.dataset.channelId,at=ids.indexOf(id);
+ if(at<0)ids.push(id);else ids.splice(at,1);
+ localStorage.setItem('syon_channel_favorites',JSON.stringify(ids));
+ updateChannelFavorites();
+}
+function updateChannelFavorites(){
+ const ids=channelFavoriteIds();
+ document.querySelectorAll('.channel-favorite').forEach(b=>{
+  const selected=ids.includes(b.dataset.channelId);
+  b.setAttribute('aria-pressed',String(selected));b.textContent=selected?'★ Salvo':'☆ Favoritar';
+  b.setAttribute('aria-label',selected?'Remover canal dos favoritos':'Adicionar canal aos favoritos');
+ });
+ const count=document.getElementById('channelFavCount');if(count)count.textContent=ids.length+' canal(is) favorito(s) neste iPhone';
+}
+function showFavoriteChannels(){
+ const ids=channelFavoriteIds();
+ const buttons=document.querySelectorAll('.channel-filter button');
+ buttons.forEach(b=>b.setAttribute('aria-pressed','false'));
+ document.querySelectorAll('#channelGrid .channel-tile').forEach(a=>{
+  const b=a.querySelector('.channel-favorite');a.hidden=!b||!ids.includes(b.dataset.channelId);
+ });
+ const count=document.getElementById('channelFavCount');
+ if(count)count.textContent=ids.length?ids.length+' favorito(s) · Toque em Todos para voltar':'Nenhum favorito salvo · Toque em Todos para voltar';
+}
+
 function filterChannels(category,button){
  document.querySelectorAll('.channel-filter button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
  document.querySelectorAll('#channelGrid .channel-tile').forEach(a=>{a.hidden=category!=='todos'&&a.dataset.channelCategory!==category});
@@ -288,6 +331,7 @@ function showPage(p){closePlayer();['home','search','sports','live','saved','set
 document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
 document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter')searchNow()});
 if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+initChannelFavorites();
 if(token){loadHome();loadCatalog();loadGenre()}else{loadGenre()}
 </script>
 </body></html>

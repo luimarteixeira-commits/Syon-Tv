@@ -1,7 +1,7 @@
-SYON TV - Etapa 5.6
+SYON TV - Etapa 5.7
 
-Novo: campo para reproduzir URLs HTTPS diretas .m3u8 no player interno com diagnostico de erro e botao Tentar novamente. Inclui preenchimento do sinal HLS tecnico validado no iPhone.
+Canais favoritos: marque os cards de canais oficiais e abra Meus canais. Os favoritos ficam armazenados neste aparelho. Os links continuam abrindo as fontes oficiais, nao sao canais integrados.
 
-Nao inclui canais reais incorporados: links oficiais continuam externos ate verificacao de permissao e compatibilidade. Use somente fontes autorizadas.
+O campo HLS personalizado, os testes de video, a busca, filmes, series e favoritos do catalogo foram preservados.
 
-Instalacao: envie os cinco arquivos para a raiz do repositorio GitHub Pages.
+Instale substituindo os cinco arquivos na raiz do repositorio GitHub Pages.
