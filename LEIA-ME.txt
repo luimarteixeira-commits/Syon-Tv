@@ -1,9 +1,4 @@
-SYON TV — ETAPA 4: BUSCA INTELIGENTE E MINHA LISTA
-
-Envie os 5 arquivos desta pasta para a raiz do repositório GitHub Syon-Tv, substituindo os arquivos anteriores. Não envie o ZIP fechado.
-
-Novidades: busca por nome, filtros por tipo/ano/nota, ordenação, paginação de resultados e organização da Minha Lista com remoção direta.
-
-O token TMDB e os favoritos continuam armazenados somente no navegador do usuário.
-
-Depois da publicação, atualize o Safari. Se o cache antigo persistir, feche e reabra a página.
+SYON TV — Etapa 5B: player integrado experimental.
+Inclui trailers oficiais incorporados do YouTube, curta Big Buck Bunny (Blender, CC BY) e sinal HLS de teste (não é canal de TV).
+O TMDB oferece metadados, não vídeos completos. Plataformas que bloqueiam incorporação não podem ser reproduzidas internamente sem integração autorizada.
+Instalação: envie index.html, sw.js, manifest.json, icon.svg e LEIA-ME.txt para a raiz do repositório GitHub Pages.
