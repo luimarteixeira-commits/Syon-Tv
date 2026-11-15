@@ -1,16 +1,9 @@
-SYON TV — Etapa 2: Catálogo Inteligente
+SYON TV — ETAPA 3: TRAILERS E PRÉVIAS OFICIAIS
 
-Novidades: gêneros selecionáveis, lançamentos nos cinemas, em breve, filmes e séries mais bem avaliados.
-O visual premium, a integração TMDB, busca, detalhes e Minha Lista continuam disponíveis.
+Atualização para o PWA publicado no GitHub Pages.
 
-INSTALAÇÃO
-1. Descompacte o ZIP no iPhone.
-2. Envie os cinco arquivos para a RAIZ do repositório GitHub Syon-Tv na branch main.
-3. Substitua os arquivos existentes e confirme Commit changes.
-4. Aguarde GitHub Pages publicar e abra o site no Safari.
-5. Se a versão anterior aparecer, feche e reabra a página; o service worker foi atualizado.
+Novidade: na página de detalhes de cada filme ou série, o aplicativo procura trailers ou teasers do YouTube catalogados no TMDB, priorizando vídeos oficiais e português quando disponíveis. O botão abre o vídeo no YouTube; não hospeda nem distribui filmes. Quando não houver vídeo, informa a indisponibilidade.
 
-IMPORTANTE
-O token TMDB já salvo no navegador não é apagado pelo envio dos arquivos.
-Não inclua o token no GitHub. O app ainda é um protótipo e precisa de backend para proteger credenciais antes de lançamento público.
-Os dados são fornecidos pelo TMDB; não há reprodução de vídeo integrada.
+Instalação: descompacte e envie os cinco arquivos para a raiz do repositório Syon-Tv no GitHub, substituindo os arquivos existentes. Faça commit na branch main. Aguarde a publicação no GitHub Pages.
+
+O token TMDB e os favoritos continuam armazenados localmente no navegador. Não publique o token no GitHub. Para uso comercial, consulte os termos do TMDB e dos provedores de vídeo.
