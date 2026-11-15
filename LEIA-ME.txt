@@ -1,0 +1,23 @@
+SYON TV — pacote PWA inicial
+
+INSTALAÇÃO NO IPHONE
+1. Publique os arquivos deste pacote em um endereço HTTPS (ex.: seu domínio ou hospedagem estática).
+2. Abra esse endereço no Safari do iPhone.
+3. Toque em Compartilhar > Adicionar à Tela de Início.
+4. Abra o ícone SYON TV instalado.
+5. Entre em Ajustes e cole seu TMDB API Read Access Token.
+
+TMDB
+- Crie/acesse sua conta e solicite credenciais de API em https://www.themoviedb.org/settings/api
+- Use o API Read Access Token (Bearer).
+- A chave fica armazenada no navegador deste aparelho nesta versão de protótipo.
+- Para produção, implemente um backend que proteja credenciais e aplique limites/monitoramento.
+- Leia os termos de API e requisitos de atribuição: https://developer.themoviedb.org/docs
+- Este produto usa a API do TMDB, mas não é endossado nem certificado pelo TMDB.
+
+LIMITAÇÕES IMPORTANTES
+- TMDB fornece metadados, imagens e dados de provedores/disponibilidade, não os streams de vídeo.
+- O endpoint de watch providers não garante que uma assinatura do usuário dê acesso nem fornece o vídeo.
+- A reprodução dentro do app exige acordo/API/licença do provedor. Nesta versão, os resultados de provedores e links oficiais são informativos.
+- Esportes e TV ao vivo são áreas preparadas, ainda sem feeds conectados.
+- PWA requer HTTPS para instalação confiável e service worker. Abrir o HTML diretamente como arquivo não instala o app.

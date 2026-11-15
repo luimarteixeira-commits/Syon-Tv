@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08090d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SYON TV">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.svg">
+<title>SYON TV</title>
+<style>
+:root{color-scheme:dark;--bg:#08090d;--panel:#141720;--panel2:#1c202b;--line:#2a3040;--txt:#f5f6fa;--muted:#a4aab8;--accent:#c6b7ff;--good:#8ed9b2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:calc(82px + env(safe-area-inset-bottom))}
+header{position:sticky;top:0;z-index:10;background:#090a0fee;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff12;padding:calc(12px + env(safe-area-inset-top)) 17px 12px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:4px;font-size:22px}.brand i{color:var(--accent);font-style:normal}.headbtn,.btn,.tab,.chip{border:1px solid var(--line);background:var(--panel);color:var(--txt);border-radius:22px;padding:10px 13px}
+main{max-width:1000px;margin:auto}.hero{margin:18px 15px 26px;min-height:290px;border-radius:23px;overflow:hidden;position:relative;background:linear-gradient(90deg,#08090df5,#08090d88 70%,#08090d33),linear-gradient(0deg,#08090d 0%,transparent 65%);display:flex;align-items:end}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}.hero-copy{padding:25px;max-width:650px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--accent);font-weight:800}.hero h1{font-size:clamp(30px,7vw,48px);line-height:1.03;margin:10px 0}.hero p{color:#d6d8e0;line-height:1.45;font-size:14px;max-width:540px}
+section{padding:0 16px;margin:24px 0}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.row h2{font-size:20px;margin:0 0 13px}.muted{color:var(--muted);font-size:12px}
+.searchbar{display:flex;gap:8px;padding:0 16px;margin:18px auto 20px}.searchbar input,.field input,.field select{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;color:var(--txt);font-size:16px;outline:none}
+.searchbar button,.primary{background:#eee9ff;color:#161322;border:0;border-radius:14px;padding:0 16px;font-weight:700}
+.chips{display:flex;gap:8px;overflow:auto;padding-bottom:12px}.chip{white-space:nowrap}.chip.active{background:#e9e2ff;color:#171321}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{min-width:0;cursor:pointer}.poster{position:relative;aspect-ratio:2/3;background:var(--panel);border-radius:14px;overflow:hidden;border:1px solid #ffffff12}.poster img{width:100%;height:100%;object-fit:cover}.card h3{font-size:14px;margin:8px 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card small{color:var(--muted)}
+.badge{position:absolute;left:8px;top:8px;background:#090a0de8;border-radius:7px;padding:5px 7px;font-size:10px}
+.detail{display:none;background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin:18px 16px}.detail.show{display:block}.detail img{width:100%;max-height:300px;object-fit:cover}.detail-body{padding:18px}.detail h2{margin:5px 0}.detail p{line-height:1.55;color:#d0d4df;font-size:14px}.providers{display:grid;gap:8px;margin-top:12px}.provider{padding:12px;background:var(--panel2);border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px}
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:20;display:flex;justify-content:space-around;background:#0d1018ed;backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:10px 5px calc(10px + env(safe-area-inset-bottom))}
+.nav button{background:none;border:0;color:var(--muted);font-size:10px;display:grid;gap:4px;justify-items:center}.nav button b{font-size:19px;font-weight:500}.nav button.active{color:var(--accent)}
+.panel{margin:16px;padding:17px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}.field{margin:13px 0}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:7px}.primary{padding:13px 17px;width:100%;margin-top:8px}.notice{color:var(--muted);font-size:12px;line-height:1.5}.empty{padding:24px;text-align:center;color:var(--muted);background:var(--panel);border-radius:14px}
+footer{text-align:center;padding:25px 18px;color:#747b8a;font-size:11px;line-height:1.6}
+#toast{position:fixed;z-index:40;bottom:90px;left:50%;transform:translateX(-50%);background:#eee9ff;color:#171321;border-radius:20px;padding:11px 16px;display:none;font-size:13px;white-space:nowrap}
+@media(min-width:650px){.cards{grid-template-columns:repeat(4,minmax(0,1fr))}.hero{min-height:390px}.searchbar{max-width:960px}}
+</style>
+</head>
+<body>
+<header><div class="brand">SYON<i>•</i>TV</div><button class="headbtn" onclick="showPage('settings')">⚙</button></header>
+<main>
+<div id="homePage">
+<div class="searchbar"><input id="search" type="search" placeholder="Buscar filmes, séries e pessoas..." autocomplete="off"><button onclick="searchNow()">Buscar</button></div>
+<div class="hero" id="hero"><div class="hero-copy"><div class="eyebrow">SUA CENTRAL DE ENTRETENIMENTO</div><h1>O que vamos assistir?</h1><p>Descubra filmes, séries, esportes e onde encontrar cada título em serviços autorizados.</p><button class="primary" style="width:auto" onclick="searchNow()">Explorar catálogo</button></div></div>
+<section><div class="row"><h2>Em alta</h2><span class="muted">Brasil</span></div><div id="trending" class="cards"><div class="empty">Configure sua chave TMDB em Ajustes para carregar o catálogo.</div></div></section>
+<section><div class="row"><h2>Filmes populares</h2></div><div id="movies" class="cards"></div></section>
+<section><div class="row"><h2>Séries populares</h2></div><div id="series" class="cards"></div></section>
+</div>
+<div id="searchPage" style="display:none"><section><h2>Resultados da busca</h2><div id="results" class="cards"></div></section></div>
+<div id="sportsPage" style="display:none"><section><h2>Esportes</h2><div class="panel"><p>Esta área está preparada para receber agenda, notícias e links de transmissões esportivas licenciadas.</p><p class="notice">Ainda não há provedor esportivo conectado. Não exibimos transmissões sem autorização.</p></div></section></div>
+<div id="livePage" style="display:none"><section><h2>TV ao vivo</h2><div class="panel"><p>Conecte serviços que ofereçam canais gratuitos ou licenciados e links oficiais de reprodução.</p><p class="notice">O TMDB não fornece sinal de TV ao vivo nem vídeo dos filmes.</p></div></section></div>
+<div id="savedPage" style="display:none"><section><h2>Minha lista</h2><div id="saved" class="cards"></div></section></div>
+<div id="settingsPage" style="display:none">
+<section><h2>Ajustes e integrações</h2>
+<div class="panel">
+<div class="eyebrow">CATÁLOGO DE METADADOS</div>
+<h3>TMDB API Read Access Token</h3>
+<div class="field"><label>Token de leitura da API (Bearer)</label><input id="token" type="password" placeholder="Cole seu token TMDB aqui" autocomplete="off"></div>
+<div class="field"><label>País para disponibilidade</label><select id="region"><option value="BR">Brasil (BR)</option><option value="US">Estados Unidos (US)</option><option value="PT">Portugal (PT)</option></select></div>
+<button class="primary" onclick="saveSettings()">Salvar e conectar TMDB</button>
+<button class="btn" style="width:100%;margin-top:9px" onclick="clearToken()">Apagar token deste aparelho</button>
+<p class="notice">A chave é guardada somente neste navegador/aparelho para este protótipo. Não compartilhe o token. Para uma publicação real, mova a credencial para um backend seguro e revise os termos e atribuições do TMDB.</p>
+</div>
+<div class="panel"><div class="eyebrow">DISPONIBILIDADE AUTORIZADA</div><h3>Onde assistir</h3><p class="notice">O app consulta provedores informados pelo endpoint oficial de watch providers do TMDB por título e região. Os resultados indicam disponibilidade/provedores e links oficiais quando fornecidos; não liberam reprodução dentro do SYON TV.</p></div>
+<div class="panel"><h3>Sobre o TMDB</h3><p class="notice">Este produto usa a API do TMDB, mas não é endossado nem certificado pelo TMDB. Os metadados e imagens são fornecidos pelo TMDB.</p><p><a href="https://www.themoviedb.org/" target="_blank" rel="noopener" style="color:var(--accent)">Acessar TMDB</a> · <a href="https://developer.themoviedb.org/docs" target="_blank" rel="noopener" style="color:var(--accent)">Documentação API</a></p></div>
+</section></div>
+<div id="detail" class="detail"></div>
+</main>
+<footer>SYON TV · Protótipo PWA para iPhone e Android.<br>Disponibilidade depende do país, do provedor e dos direitos de exibição.<br>Metadados/imagens: TMDB. Este produto usa a API do TMDB, mas não é endossado nem certificado pelo TMDB.</footer>
+<nav class="nav">
+<button class="active" data-page="home"><b>⌂</b>Início</button><button data-page="search"><b>⌕</b>Buscar</button><button data-page="sports"><b>◉</b>Esportes</button><button data-page="live"><b>▤</b>Ao vivo</button><button data-page="saved"><b>♡</b>Minha lista</button>
+</nav><div id="toast"></div>
+<script>
+const API='https://api.themoviedb.org/3', IMG='https://image.tmdb.org/t/p/';
+let token=localStorage.getItem('syon_tmdb_token')||'',region=localStorage.getItem('syon_region')||'BR',saved=JSON.parse(localStorage.getItem('syon_saved')||'[]'),current=null;
+document.getElementById('token').value=token;document.getElementById('region').value=region;
+async function api(path){if(!token)throw Error('Adicione seu token TMDB em Ajustes.');let r=await fetch(API+path,{headers:{Authorization:'Bearer '+token,accept:'application/json'}});if(!r.ok)throw Error('TMDB respondeu '+r.status+'. Verifique token e permissões.');return r.json()}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2600)}
+function poster(path,size='w500'){return path?IMG+size+path:''}
+function card(x){let type=x.media_type|| (x.title?'movie':'tv'),name=x.title||x.name||'Sem título',year=(x.release_date||x.first_air_date||'').slice(0,4),p=poster(x.poster_path);return `<article class="card" onclick="details('${type}',${x.id})"><div class="poster">${p?`<img loading="lazy" src="${p}" alt="">`:''}<span class="badge">${type==='movie'?'FILME':'SÉRIE'}</span></div><h3>${esc(name)}</h3><small>${year||'Ano indisponível'}</small></article>`}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function loadHome(){if(!token)return;try{let [t,m,s]=await Promise.all([api('/trending/all/week?language=pt-BR&region='+region),api('/movie/popular?language=pt-BR&region='+region),api('/tv/popular?language=pt-BR&region='+region)]);document.getElementById('trending').innerHTML=t.results.slice(0,8).map(card).join('');document.getElementById('movies').innerHTML=m.results.slice(0,8).map(x=>card({...x,media_type:'movie'})).join('');document.getElementById('series').innerHTML=s.results.slice(0,8).map(x=>card({...x,media_type:'tv'})).join('')}catch(e){toast(e.message)}}
+async function searchNow(){let q=document.getElementById('search').value.trim();if(!q)return toast('Digite um título ou nome.');showPage('search');let el=document.getElementById('results');el.innerHTML='<div class="empty">Pesquisando…</div>';try{let d=await api('/search/multi?query='+encodeURIComponent(q)+'&language=pt-BR&region='+region+'&include_adult=false');el.innerHTML=d.results.filter(x=>['movie','tv'].includes(x.media_type)).map(card).join('')||'<div class="empty">Nenhum resultado.</div>'}catch(e){el.innerHTML='<div class="empty">'+esc(e.message)+'</div>'}}
+async function details(type,id){let d=await api('/'+type+'/'+id+'?language=pt-BR&append_to_response=credits');current={type,id,data:d};let w=null;try{w=await api('/'+type+'/'+id+'/watch/providers')}catch(e){}let providers=w?.results?.[region]||{},prov=[...(providers.flatrate||[]),...(providers.free||[]),...(providers.ads||[]),...(providers.rent||[]),...(providers.buy||[])];let uniq=[...new Map(prov.map(x=>[x.provider_id,x])).values()];let cast=(d.credits?.cast||[]).slice(0,8).map(x=>x.name).join(', ');let backdrop=poster(d.backdrop_path,'w1280');let name=d.title||d.name;let el=document.getElementById('detail');el.className='detail show';el.innerHTML=`${backdrop?`<img src="${backdrop}" alt="">`:''}<div class="detail-body"><div class="eyebrow">${type==='movie'?'FILME':'SÉRIE'} · ${(d.release_date||d.first_air_date||'').slice(0,4)}</div><h2>${esc(name)}</h2><p>${esc(d.overview||'Sinopse não disponível em português.')}</p><p class="muted">Elenco: ${esc(cast||'Informação não disponível')}</p><p class="muted">Lançamento: ${esc(d.release_date||d.first_air_date||'Não informado')} · Nota TMDB: ${d.vote_average?.toFixed(1)||'—'}</p><h3>Onde assistir em ${region}</h3><div class="providers">${uniq.length?uniq.map(p=>`<div class="provider"><span>${esc(p.provider_name)}</span><span class="muted">${(providers.free||[]).some(x=>x.provider_id===p.provider_id)?'Grátis':(providers.ads||[]).some(x=>x.provider_id===p.provider_id)?'Com anúncios':(providers.rent||[]).some(x=>x.provider_id===p.provider_id)?'Aluguel':(providers.buy||[]).some(x=>x.provider_id===p.provider_id)?'Compra':'Assinatura'}</span></div>`).join(''):'<div class="empty">Sem provedores listados para esta região.</div>'}</div>${providers.link?`<p><a style="color:var(--accent)" href="${providers.link}" target="_blank" rel="noopener">Ver opções oficiais de disponibilidade ↗</a></p>`:''}<button class="primary" onclick="toggleSave('${type}',${id},'${esc(name).replace(/'/g,"\\'")}')">${saved.some(x=>x.id===id&&x.type===type)?'Remover da minha lista':'＋ Adicionar à minha lista'}</button></div>`;el.scrollIntoView({behavior:'smooth',block:'start'})}
+function toggleSave(type,id,name){let i=saved.findIndex(x=>x.type===type&&x.id===id);if(i>=0)saved.splice(i,1);else saved.push({type,id,name});localStorage.setItem('syon_saved',JSON.stringify(saved));toast(i>=0?'Removido':'Salvo na sua lista');if(current)details(type,id);renderSaved()}
+async function renderSaved(){let el=document.getElementById('saved');if(!saved.length){el.innerHTML='<div class="empty">Sua lista está vazia.</div>';return}let out=[];for(let x of saved){try{let d=await api('/'+x.type+'/'+x.id+'?language=pt-BR');out.push(card({...d,media_type:x.type}))}catch(e){out.push(`<div class="empty">${esc(x.name)}</div>`)}}el.innerHTML=out.join('')}
+function saveSettings(){token=document.getElementById('token').value.trim();region=document.getElementById('region').value;if(!token)return toast('Cole seu token TMDB.');localStorage.setItem('syon_tmdb_token',token);localStorage.setItem('syon_region',region);toast('Configuração salva');showPage('home');loadHome()}
+function clearToken(){localStorage.removeItem('syon_tmdb_token');token='';document.getElementById('token').value='';toast('Token apagado deste aparelho')}
+function showPage(p){['home','search','sports','live','saved','settings'].forEach(x=>document.getElementById(x+'Page').style.display=x===p?'block':'none');document.getElementById('detail').className='detail';document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===p));if(p==='saved')renderSaved();if(p==='settings')document.getElementById('token').value=token}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+document.getElementById('search').addEventListener('keydown',e=>{if(e.key==='Enter')searchNow()});
+if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+if(token)loadHome();
+</script>
+</body></html>
