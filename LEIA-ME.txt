@@ -1,7 +1,7 @@
-SYON TV - Etapa 5.7
+SYON TV - Etapa 5.8
 
-Canais favoritos: marque os cards de canais oficiais e abra Meus canais. Os favoritos ficam armazenados neste aparelho. Os links continuam abrindo as fontes oficiais, nao sao canais integrados.
+Cinema livre: Elephants Dream (2006), curta aberto CC BY 3.0, MP4 externo documentado pelo MDN e hospedado no Internet Archive. Reproducao no iPhone ainda precisa ser testada.
 
-O campo HLS personalizado, os testes de video, a busca, filmes, series e favoritos do catalogo foram preservados.
+Canais oficiais, favoritos, HLS e demais recursos mantidos.
 
-Instale substituindo os cinco arquivos na raiz do repositorio GitHub Pages.
+Instalacao: substitua os cinco arquivos no GitHub Pages.
