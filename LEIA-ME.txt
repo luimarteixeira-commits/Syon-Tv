@@ -1,7 +1,5 @@
-SYON TV - Etapa 5.8
+SYON TV - Etapa 5.9
 
-Cinema livre: Elephants Dream (2006), curta aberto CC BY 3.0, MP4 externo documentado pelo MDN e hospedado no Internet Archive. Reproducao no iPhone ainda precisa ser testada.
+Cinema Livre com Elephants Dream, Big Buck Bunny, Sintel e Tears of Steel. Links MP4 externos, créditos e licença. Apenas Elephants Dream foi validado no iPhone; os demais precisam ser testados. Se uma fonte falhar, abra Fonte e créditos.
 
-Canais oficiais, favoritos, HLS e demais recursos mantidos.
-
-Instalacao: substitua os cinco arquivos no GitHub Pages.
+Instalação: substituir os cinco arquivos na raiz do GitHub Pages.
