@@ -1,5 +1,5 @@
-SYON TV - Etapa 5.9
+SYON TV - Etapa 6.0
 
-Cinema Livre com Elephants Dream, Big Buck Bunny, Sintel e Tears of Steel. Links MP4 externos, créditos e licença. Apenas Elephants Dream foi validado no iPhone; os demais precisam ser testados. Se uma fonte falhar, abra Fonte e créditos.
+Cinema Livre: Elephants Dream, Big Buck Bunny e Sintel marcados como confirmados no iPhone. Tears of Steel identificado como fonte em diagnostico; acesso a pagina oficial disponivel tambem dentro do player. Mantido botao Tentar novamente e mensagens de erro. Nenhuma fonte nao verificada foi anunciada como funcional.
 
-Instalação: substituir os cinco arquivos na raiz do GitHub Pages.
+Instale os cinco arquivos na raiz do repositorio GitHub Pages.
