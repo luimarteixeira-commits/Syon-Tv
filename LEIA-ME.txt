@@ -1,7 +1,7 @@
-SYON TV - Etapa 5.5
+SYON TV - Etapa 5.6
 
-Novidades: cards de canais oficiais com categorias e filtros; controle de tela cheia no player; teste HLS preservado; links de catalogos gratuitos preservados.
+Novo: campo para reproduzir URLs HTTPS diretas .m3u8 no player interno com diagnostico de erro e botao Tentar novamente. Inclui preenchimento do sinal HLS tecnico validado no iPhone.
 
-ATENCAO: os cards de canais abrem as fontes oficiais. Eles NAO sao streams integrados. O teste HLS e um sinal tecnico.
+Nao inclui canais reais incorporados: links oficiais continuam externos ate verificacao de permissao e compatibilidade. Use somente fontes autorizadas.
 
-Instalacao: envie os cinco arquivos para a raiz do repositorio GitHub Pages, substituindo os existentes.
+Instalacao: envie os cinco arquivos para a raiz do repositorio GitHub Pages.
