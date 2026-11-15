@@ -1,7 +1,5 @@
-SYON TV - Etapa 5.3
+SYON TV - Etapa 5.4
 
-Teste MP4 com fonte MDN, segunda fonte alternativa, diagnostico de erros e botao tentar novamente. O teste YouTube permanece.
+Adicionada selecao de canais, transmissões e plataformas oficiais na aba TV ao vivo, além de catálogos gratuitos de filmes. Os links abrem os serviços oficiais, sem contornar bloqueios de incorporação. O teste HLS, MP4, YouTube e demais recursos foram preservados.
 
 Instalacao: descompacte e envie os cinco arquivos para a raiz do repositorio GitHub Pages.
-
-Os videos de teste nao representam catalogo de filmes ou canais. Fontes externas podem falhar.
