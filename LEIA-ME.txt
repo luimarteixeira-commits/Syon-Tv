@@ -1,5 +1,7 @@
-SYON TV - Etapa 5.4
+SYON TV - Etapa 5.5
 
-Adicionada selecao de canais, transmissões e plataformas oficiais na aba TV ao vivo, além de catálogos gratuitos de filmes. Os links abrem os serviços oficiais, sem contornar bloqueios de incorporação. O teste HLS, MP4, YouTube e demais recursos foram preservados.
+Novidades: cards de canais oficiais com categorias e filtros; controle de tela cheia no player; teste HLS preservado; links de catalogos gratuitos preservados.
 
-Instalacao: descompacte e envie os cinco arquivos para a raiz do repositorio GitHub Pages.
+ATENCAO: os cards de canais abrem as fontes oficiais. Eles NAO sao streams integrados. O teste HLS e um sinal tecnico.
+
+Instalacao: envie os cinco arquivos para a raiz do repositorio GitHub Pages, substituindo os existentes.
