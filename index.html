@@ -87,7 +87,7 @@ section{margin:30px 0;padding:0 18px}.row h2{font-size:22px;letter-spacing:-.5px
 <div id="sportsPage" style="display:none"><section>
 <div class="row"><h2>⚽ Esportes e lutas</h2><span class="muted">Canais oficiais</span></div>
 <p class="notice">Assista a vídeos e transmissões públicas de canais oficiais. Para reproduzir dentro do SYON TV, copie o link de um vídeo ou transmissão do YouTube; a incorporação precisa estar permitida pelo canal.</p>
-<div class="demo-card"><div class="eyebrow">ETAPA 5.2 · TESTES DIRETOS</div><h3>▶ Catálogo para testar o player</h3><p class="notice">Selecione um conteúdo abaixo sem copiar links. Estes são vídeos de demonstração, não transmissões da CazéTV. A reprodução pode variar conforme a fonte.</p><div class="sport-directory"><button class="btn" type="button" onclick="openPlayer('video','https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4','Big Buck Bunny · demonstração')">🎬 Assistir animação gratuita</button><button class="btn" type="button" onclick="openPlayer('youtube','M7lc1UVf-VE',encodeURIComponent('Teste oficial do player YouTube'))">▶ Testar vídeo oficial do YouTube</button></div><p class="notice">Se o segundo teste for bloqueado, o problema pode envolver o ambiente do navegador. Se apenas uma transmissão for bloqueada, pode ser restrição daquele vídeo.</p></div>
+<div class="demo-card"><div class="eyebrow">ETAPA 5.3 · DIAGNÓSTICO DO PLAYER</div><h3>▶ Catálogo para testar o player</h3><p class="notice">Selecione um conteúdo abaixo sem copiar links. Estes são vídeos de demonstração, não transmissões da CazéTV. A reprodução pode variar conforme a fonte.</p><div class="sport-directory"><button class="btn" type="button" onclick="openPlayer('video','https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4','Flores · vídeo de teste')">🎬 Testar vídeo MP4 (flores)</button><button class="btn" type="button" onclick="openPlayer('youtube','M7lc1UVf-VE',encodeURIComponent('Teste oficial do player YouTube'))">▶ Testar vídeo oficial do YouTube</button><button class="btn" type="button" onclick="testAlternateVideo()">🎞 Testar segunda fonte MP4</button></div><p class="notice">Se o segundo teste for bloqueado, o problema pode envolver o ambiente do navegador. Se apenas uma transmissão for bloqueada, pode ser restrição daquele vídeo.</p></div>
 <div class="demo-card"><div class="eyebrow">FUTEBOL • AO VIVO • MELHORES MOMENTOS</div><h3>📺 CazéTV</h3><p class="notice">Canal esportivo gratuito no YouTube. Algumas transmissões, inclusive da LiveMode, bloqueiam incorporação em outros aplicativos. O botão abaixo abre o canal oficial; para tentar o player integrado, use o campo de link.</p>
 <a class="sport-link" href="https://www.youtube.com/@CazeTV/streams" target="_blank" rel="noopener noreferrer">Ver transmissões oficiais da CazéTV ↗</a>
 <label class="sport-label" for="sportsYoutubeUrl">Cole o link de um vídeo ou live da CazéTV</label>
@@ -95,7 +95,7 @@ section{margin:30px 0;padding:0 18px}.row h2{font-size:22px;letter-spacing:-.5px
 <p id="sportsFeedback" class="notice" aria-live="polite">Não é possível incorporar automaticamente toda a aba Ao vivo do YouTube; selecione uma transmissão específica.</p></div>
 <div class="demo-card"><h3>🥊 Lutas e esportes gratuitos</h3><p class="notice">Canais oficiais para procurar transmissões gratuitas e vídeos públicos. Eventos pagos do UFC e Combate não estão incluídos.</p>
 <div class="sport-directory"><a href="https://www.youtube.com/@ufc" target="_blank" rel="noopener noreferrer">UFC — vídeos oficiais ↗</a><a href="https://www.youtube.com/@Olympics" target="_blank" rel="noopener noreferrer">Olympics ↗</a><a href="https://www.youtube.com/@FIFA" target="_blank" rel="noopener noreferrer">FIFA ↗</a><a href="https://www.redbull.com/br-pt/live-events" target="_blank" rel="noopener noreferrer">Red Bull TV ↗</a></div><p class="notice">Para vídeos do YouTube que aceitem incorporação, use o mesmo campo acima. A disponibilidade muda conforme o evento e o país.</p></div>
-<div class="demo-card"><h3>🎬 Teste do player de filmes</h3><p class="notice">Curta Big Buck Bunny, demonstração técnica de reprodução interna.</p><button type="button" onclick="openPlayer('video','https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4','Big Buck Bunny')">▶ Assistir demonstração</button></div>
+<div class="demo-card"><h3>🎬 Teste do player de filmes</h3><p class="notice">Vídeo curto de teste em MP4, disponibilizado pelo MDN. Não é um filme completo.</p><button type="button" onclick="openPlayer('video','https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4','Vídeo de demonstração')">▶ Assistir demonstração</button></div>
 </section></div>
 <div id="livePage" style="display:none"><section><h2>TV ao vivo · Player SYON</h2><p class="notice">A reprodução interna depende de uma transmissão autorizada e compatível. Este primeiro teste usa um sinal público de demonstração, não um canal de TV real.</p><div class="demo-card"><h3>📡 Teste de transmissão HLS</h3><p class="notice">Verifique o funcionamento do player no Safari do iPhone. Este sinal é uma demonstração técnica, não uma emissora.</p><button onclick="openPlayer('hls','https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8','Teste de transmissão HLS')">▶ Testar player ao vivo</button></div></section></div>
 <div id="savedPage" style="display:none"><section><div class="row"><h2>Minha lista</h2><span id="savedCount" class="muted"></span></div><p class="notice">Favoritos salvos neste navegador.</p><div class="filters"><label>Mostrar<select id="savedType" onchange="renderSaved()"><option value="all">Tudo</option><option value="movie">Filmes</option><option value="tv">Séries</option></select></label><label>Ordenar<select id="savedSort" onchange="renderSaved()"><option value="recent">Mais recentes</option><option value="title">Nome A–Z</option></select></label></div><div id="saved" class="cards"></div></section></div>
@@ -168,10 +168,28 @@ function openPlayer(kind,source,title){
   if(!/^[A-Za-z0-9_-]{11}$/.test(source))return toast('Vídeo inválido');
   const iframe=document.createElement('iframe');iframe.src='https://www.youtube.com/embed/'+source+'?playsinline=1&rel=0&origin='+encodeURIComponent(location.origin);iframe.title='YouTube: '+document.getElementById('playerTitle').textContent;iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';frame.appendChild(iframe);document.getElementById('playerNote').textContent='Se o YouTube bloquear este vídeo, a restrição pertence à fonte e não pode ser removida pelo SYON TV.';
  }else if(kind==='video'||kind==='hls'){
-  const allowed=kind==='video'?'https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4':'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
+  const allowed=kind==='video'?'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4':'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
   if(source!==allowed)return toast('Fonte não cadastrada');
-  const video=document.createElement('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.src=allowed;frame.appendChild(video);document.getElementById('playerNote').textContent='Vídeo de demonstração reproduzido no player HTML5 do SYON TV.';
+  const video=document.createElement('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.setAttribute('playsinline','');video.src=allowed;frame.appendChild(video);
+ const note=document.getElementById('playerNote');note.textContent='Toque em ▶ para iniciar. Aguardando carregamento…';
+ video.addEventListener('loadedmetadata',()=>note.textContent='Arquivo reconhecido pelo Safari. Toque em ▶ para assistir.');
+ video.addEventListener('canplay',()=>note.textContent='Vídeo pronto. Toque em ▶ para assistir.');
+ video.addEventListener('playing',()=>note.textContent='Reproduzindo no player integrado do SYON TV.');
+ video.addEventListener('waiting',()=>note.textContent='Aguardando dados do servidor…');
+ video.addEventListener('stalled',()=>note.textContent='A conexão com o servidor parou. Tente a fonte alternativa.');
+ video.addEventListener('error',()=>{const c=video.error?.code;note.textContent=(c===2?'Falha de rede ao carregar o vídeo.':c===3?'O Safari não conseguiu decodificar o vídeo.':c===4?'Arquivo indisponível ou formato não suportado.':'Não foi possível reproduzir este vídeo.')+' Código: '+(c||'não informado')+'.';});
+ const retry=document.createElement('button');retry.type='button';retry.textContent='↻ Tentar novamente';retry.style.cssText='margin:8px 15px 12px;padding:10px 14px;border-radius:10px;background:#e9e2ff;color:#171321;border:0';retry.onclick=()=>{note.textContent='Tentando carregar novamente…';video.load()};frame.parentElement.appendChild(retry);retry.dataset.syonRetry='1';
  }
+ overlay.classList.add('open');document.body.style.overflow='hidden';
+}
+function testAlternateVideo(){
+ const overlay=document.getElementById('playerOverlay'),frame=document.getElementById('playerFrame');
+ closePlayer();document.getElementById('playerTitle').textContent='Teste alternativo · MP4';
+ const v=document.createElement('video');v.controls=true;v.playsInline=true;v.preload='metadata';
+ v.src='https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4';frame.appendChild(v);
+ const note=document.getElementById('playerNote');note.textContent='Fonte alternativa de demonstração. Toque em ▶.';
+ v.addEventListener('playing',()=>note.textContent='Fonte alternativa reproduzindo dentro do SYON TV.');
+ v.addEventListener('error',()=>note.textContent='A fonte alternativa também falhou. Informe este resultado.');
  overlay.classList.add('open');document.body.style.overflow='hidden';
 }
 function playSportsYoutube(){
@@ -182,7 +200,7 @@ function playSportsYoutube(){
  msg.textContent='Abrindo player integrado. Se o YouTube bloquear a incorporação, abra o vídeo no canal oficial.';
  openPlayer('youtube',id,encodeURIComponent('Esportes • YouTube oficial'));
 }
-function closePlayer(){const overlay=document.getElementById('playerOverlay');if(!overlay)return;overlay.classList.remove('open');document.getElementById('playerFrame').replaceChildren();document.body.style.overflow=''}
+function closePlayer(){const overlay=document.getElementById('playerOverlay');if(!overlay)return;overlay.classList.remove('open');document.getElementById('playerFrame').replaceChildren();document.querySelectorAll('[data-syon-retry]').forEach(x=>x.remove());document.body.style.overflow=''}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlayer()});
 function watchMarkup(data,regionCode,failed){
  const categories=[['free','Grátis','Pode exigir cadastro'],['ads','Grátis com anúncios','Pode exigir cadastro'],['flatrate','Por assinatura','Pode exigir assinatura ativa'],['rent','Aluguel','Pagamento pode ser necessário'],['buy','Compra','Pagamento pode ser necessário']];

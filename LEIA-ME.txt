@@ -1,7 +1,7 @@
-SYON TV - Etapa 5.2
+SYON TV - Etapa 5.3
 
-Atualizacao: botoes de testes diretos, mensagens claras sobre restricoes de incorporacao e ajuste do dominio do player YouTube.
+Teste MP4 com fonte MDN, segunda fonte alternativa, diagnostico de erros e botao tentar novamente. O teste YouTube permanece.
 
-Instalacao: envie os cinco arquivos desta pasta para a raiz do repositorio GitHub Pages, substituindo os existentes.
+Instalacao: descompacte e envie os cinco arquivos para a raiz do repositorio GitHub Pages.
 
-Aviso: a CazeTV pode bloquear incorporacao; nenhum canal ao vivo foi anunciado como verificado.
+Os videos de teste nao representam catalogo de filmes ou canais. Fontes externas podem falhar.
