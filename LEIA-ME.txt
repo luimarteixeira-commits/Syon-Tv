@@ -1,5 +1,7 @@
-SYON TV — Etapa 5.1: Esportes e CazéTV
+SYON TV - Etapa 5.2
 
-Abra a aba Esportes, toque no canal oficial CazéTV, copie o link de uma transmissão específica do YouTube, cole no campo e toque em Reproduzir. O player interno depende de o proprietário permitir incorporação. Não desbloqueia eventos pagos.
+Atualizacao: botoes de testes diretos, mensagens claras sobre restricoes de incorporacao e ajuste do dominio do player YouTube.
 
-Envie os cinco arquivos da raiz do ZIP para a raiz do repositório GitHub Pages.
+Instalacao: envie os cinco arquivos desta pasta para a raiz do repositorio GitHub Pages, substituindo os existentes.
+
+Aviso: a CazeTV pode bloquear incorporacao; nenhum canal ao vivo foi anunciado como verificado.

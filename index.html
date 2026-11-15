@@ -87,7 +87,8 @@ section{margin:30px 0;padding:0 18px}.row h2{font-size:22px;letter-spacing:-.5px
 <div id="sportsPage" style="display:none"><section>
 <div class="row"><h2>⚽ Esportes e lutas</h2><span class="muted">Canais oficiais</span></div>
 <p class="notice">Assista a vídeos e transmissões públicas de canais oficiais. Para reproduzir dentro do SYON TV, copie o link de um vídeo ou transmissão do YouTube; a incorporação precisa estar permitida pelo canal.</p>
-<div class="demo-card"><div class="eyebrow">FUTEBOL • AO VIVO • MELHORES MOMENTOS</div><h3>📺 CazéTV</h3><p class="notice">Canal esportivo gratuito no YouTube. Escolha uma transmissão disponível na aba Ao vivo e copie o link para o player SYON TV.</p>
+<div class="demo-card"><div class="eyebrow">ETAPA 5.2 · TESTES DIRETOS</div><h3>▶ Catálogo para testar o player</h3><p class="notice">Selecione um conteúdo abaixo sem copiar links. Estes são vídeos de demonstração, não transmissões da CazéTV. A reprodução pode variar conforme a fonte.</p><div class="sport-directory"><button class="btn" type="button" onclick="openPlayer('video','https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4','Big Buck Bunny · demonstração')">🎬 Assistir animação gratuita</button><button class="btn" type="button" onclick="openPlayer('youtube','M7lc1UVf-VE',encodeURIComponent('Teste oficial do player YouTube'))">▶ Testar vídeo oficial do YouTube</button></div><p class="notice">Se o segundo teste for bloqueado, o problema pode envolver o ambiente do navegador. Se apenas uma transmissão for bloqueada, pode ser restrição daquele vídeo.</p></div>
+<div class="demo-card"><div class="eyebrow">FUTEBOL • AO VIVO • MELHORES MOMENTOS</div><h3>📺 CazéTV</h3><p class="notice">Canal esportivo gratuito no YouTube. Algumas transmissões, inclusive da LiveMode, bloqueiam incorporação em outros aplicativos. O botão abaixo abre o canal oficial; para tentar o player integrado, use o campo de link.</p>
 <a class="sport-link" href="https://www.youtube.com/@CazeTV/streams" target="_blank" rel="noopener noreferrer">Ver transmissões oficiais da CazéTV ↗</a>
 <label class="sport-label" for="sportsYoutubeUrl">Cole o link de um vídeo ou live da CazéTV</label>
 <div class="sport-input-row"><input id="sportsYoutubeUrl" type="url" inputmode="url" placeholder="https://www.youtube.com/watch?v=..." aria-label="Link do YouTube"><button type="button" onclick="playSportsYoutube()">▶ Reproduzir</button></div>
@@ -165,11 +166,11 @@ function openPlayer(kind,source,title){
  closePlayer();document.getElementById('playerTitle').textContent=kind==='youtube'?decodeURIComponent(title):title;
  if(kind==='youtube'){
   if(!/^[A-Za-z0-9_-]{11}$/.test(source))return toast('Vídeo inválido');
-  const iframe=document.createElement('iframe');iframe.src='https://www.youtube-nocookie.com/embed/'+source+'?playsinline=1&rel=0';iframe.title='YouTube: '+document.getElementById('playerTitle').textContent;iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';frame.appendChild(iframe);
+  const iframe=document.createElement('iframe');iframe.src='https://www.youtube.com/embed/'+source+'?playsinline=1&rel=0&origin='+encodeURIComponent(location.origin);iframe.title='YouTube: '+document.getElementById('playerTitle').textContent;iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';frame.appendChild(iframe);document.getElementById('playerNote').textContent='Se o YouTube bloquear este vídeo, a restrição pertence à fonte e não pode ser removida pelo SYON TV.';
  }else if(kind==='video'||kind==='hls'){
   const allowed=kind==='video'?'https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4':'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
   if(source!==allowed)return toast('Fonte não cadastrada');
-  const video=document.createElement('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.src=allowed;frame.appendChild(video);
+  const video=document.createElement('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.src=allowed;frame.appendChild(video);document.getElementById('playerNote').textContent='Vídeo de demonstração reproduzido no player HTML5 do SYON TV.';
  }
  overlay.classList.add('open');document.body.style.overflow='hidden';
 }
