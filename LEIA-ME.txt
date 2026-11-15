@@ -1,4 +1,5 @@
-SYON TV — Etapa 5B: player integrado experimental.
-Inclui trailers oficiais incorporados do YouTube, curta Big Buck Bunny (Blender, CC BY) e sinal HLS de teste (não é canal de TV).
-O TMDB oferece metadados, não vídeos completos. Plataformas que bloqueiam incorporação não podem ser reproduzidas internamente sem integração autorizada.
-Instalação: envie index.html, sw.js, manifest.json, icon.svg e LEIA-ME.txt para a raiz do repositório GitHub Pages.
+SYON TV — Etapa 5.1: Esportes e CazéTV
+
+Abra a aba Esportes, toque no canal oficial CazéTV, copie o link de uma transmissão específica do YouTube, cole no campo e toque em Reproduzir. O player interno depende de o proprietário permitir incorporação. Não desbloqueia eventos pagos.
+
+Envie os cinco arquivos da raiz do ZIP para a raiz do repositório GitHub Pages.
